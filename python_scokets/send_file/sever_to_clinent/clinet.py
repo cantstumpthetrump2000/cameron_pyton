@@ -2,10 +2,13 @@ import socket
 
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = '192.168.1.172'
+host = '192.168.137.133'
 port = 50008
-
-s.connect((host,port))
+try:
+    s.connect((host,port))
+except:
+    print("serve is not conectible ")
+    exit()
 
 def ts():
 
