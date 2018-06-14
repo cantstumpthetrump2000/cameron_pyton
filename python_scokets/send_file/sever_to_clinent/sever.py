@@ -1,6 +1,6 @@
 
 
-]
+
 
 import socket
 from threading import *
@@ -22,8 +22,10 @@ class client(Thread):
 
     def run(self):
 
-        print('Client sent:', self.sock.recv(1024).decode())
-        self.sock.send(b'data_receved')
+        with open("data.txt","r") as data_to_send:
+            r=data_to_send.read()
+
+        self.sock.send(r.encode())
 
 serversocket.listen(5)
 print ('server started and listening')
