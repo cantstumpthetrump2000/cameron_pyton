@@ -21,9 +21,9 @@ class client(Thread):
         self.start()
 
     def run(self):
-        while 1:
-            print('Client sent:', self.sock.recv(1024).decode())
-            self.sock.send(b'data_receved')
+
+        print('Client sent:', self.sock.recv(1024).decode())
+            #self.sock.send(b'data_receved')
 
 serversocket.listen(5)
 print ('server started and listening')
