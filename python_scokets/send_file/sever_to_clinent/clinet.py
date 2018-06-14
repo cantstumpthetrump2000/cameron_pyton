@@ -1,5 +1,5 @@
 import socket
-import time
+
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host = '192.168.1.172'
@@ -17,12 +17,10 @@ def ts(data_to_send):
        print("send fail host down")
        exit()
    data_from_sever = s.recv(1024).decode()
-   #print (data_from_sever)
+   print (data_from_sever)
 
-start=time.time()
-for q in range(1000):
-   ts(q)
-end=time.time()
+while 1:
+   r = input('enter')
+   ts(r)
 
-print("time taken is ",end-start)
 s.close ()
