@@ -7,11 +7,11 @@ port = 50008
 
 s.connect((host,port))
 
-def ts(data_to_send):
+def ts():
 
     data_from_sever = s.recv(1024).decode()
     print (data_from_sever)
 
- ts(r)
+ts()
 
 s.close ()
