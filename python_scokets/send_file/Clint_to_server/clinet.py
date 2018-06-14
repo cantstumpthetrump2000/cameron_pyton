@@ -16,11 +16,12 @@ def ts(data_to_send):
    except:
        print("send fail host down")
        exit()
-   data_from_sever = s.recv(1024).decode()
-   print (data_from_sever)
+   #data_from_sever = s.recv(1024).decode()
+   #print (data_from_sever)
 
 
-r = open("data.txt","r")
+with open("data.txt","r") as data_to_send:
+    r=data_to_send.read()
 ts(r)
 
 s.close ()
