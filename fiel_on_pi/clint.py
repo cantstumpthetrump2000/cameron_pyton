@@ -11,9 +11,13 @@ except:
     exit()
 
 def ts():
+    while 1:
+        data_from_sever = s.recv(1024).decode()
+        print("data got",data_from_sever)
+        print()
+        if "done" in  data_from_sever:
+            break
 
-    data_from_sever = s.recv(1024).decode()
-    print (data_from_sever)
 
 ts()
 
