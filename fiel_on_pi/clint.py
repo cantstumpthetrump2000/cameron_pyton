@@ -1,24 +1,20 @@
 import socket
 
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = '192.168.1.156'
-port = 50008
-try:
-    s.connect((host,port))
-except:
-    print("serve is not conectible ")
-    exit()
-
-def ts():
-    while 1:
-        data_from_sever = s.recv(1024).decode()
-        print("data got",data_from_sever)
-        print()
-        if "done" in  data_from_sever:
-            break
+CHUNK_SIZE = 8 * 1024
+holad=""
 
 
-ts()
+sock = socket.socket()
+sock.connect(('192.168.1.156', 12345))
+chunk = sock.recv(CHUNK_SIZE)
 
-s.close ()
+holad=holad+(chunk.decode())
+while chunk:
+    chunk = sock.recv(CHUNK_SIZE)
+    holad=holad+(chunk.decode())
+    #print(" ")
+
+sock.close()
+
+
+print(holad)

@@ -7,7 +7,7 @@ server_socket.bind(('localhost', 12345))
 server_socket.listen(5)
 while True:
     client_socket, addr = server_socket.accept()
-    with open('4GB.bin', 'rb') as f:
+    with open('weight data', 'rb') as f:
         data = f.read(CHUNK_SIZE)
         while data:
             client_socket.send(data)
