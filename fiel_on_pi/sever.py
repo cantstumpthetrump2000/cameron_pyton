@@ -7,7 +7,7 @@ from threading import *
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-host = '192.168.137.133'
+host = '192.168.1.156'
 port = 50008
 print (host)
 print (port)
@@ -25,11 +25,13 @@ class client(Thread):
         with open("weight data","r") as data_to_send:
             r=data_to_send.read()
         if len(r)>1:
-	    step1=r.split("\n")
-            for q in step1:
-            	self.sock.send(q.encode())
-		self.sock.send(":".encode())
-	    self.sock.send("done".encode())
+            temp=r.split("\n")
+            for q in temp:
+                print("sending ",q)
+                self.sock.send(q.encode())
+                self.sock.send(" ".encode())
+            self.sock.send("done".encode())
+            print("done")
         else:
             r="file is emputy"
             self.sock.send(r.encode())
