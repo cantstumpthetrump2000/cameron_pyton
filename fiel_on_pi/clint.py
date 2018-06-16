@@ -31,7 +31,7 @@ step1=holad
 step2=step1.split("\n")
 
 for q in step2[0:-1]:
-    print(q)
+    #print(q)
     y,x=q.split("-")
     x_points.append(float(x))
     y_points.append(float(y))
