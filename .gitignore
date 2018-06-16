@@ -102,3 +102,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+drawing graphs/graph from scokets/graph_from_soctes.py
