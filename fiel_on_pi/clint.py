@@ -5,7 +5,7 @@ holad=""
 
 
 sock = socket.socket()
-sock.connect(('192.168.1.156', 12345))
+sock.connect(('192.168.137.23', 12345))
 chunk = sock.recv(CHUNK_SIZE)
 
 holad=holad+(chunk.decode())
@@ -29,15 +29,22 @@ step1=holad
 
 
 step2=step1.split("\n")
-
+filter=5
 for q in step2[0:-1]:
     #print(q)
     y,x=q.split("-")
-    x_points.append(float(x))
-    y_points.append(float(y))
-
-
-
+    #print("x")
+    #print(x)
+    #print("y")
+    #print(y)
+    try:
+        x2=float(x)
+        y2=float(y)
+        if y2<5:
+            x_points.append(float(x2))
+            y_points.append(float(y2))
+    except:
+        print("error")
 
 
 
