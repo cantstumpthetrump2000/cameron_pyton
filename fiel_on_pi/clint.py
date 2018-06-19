@@ -1,5 +1,7 @@
 import socket
 
+
+import time
 CHUNK_SIZE = 8 * 1024
 holad=""
 
@@ -30,6 +32,12 @@ step1=holad
 
 step2=step1.split("\n")
 filter=5
+
+filter2=10000
+print("time folter set this meny second",filter2)
+filter2=time.time()-filter2
+
+print("weigth filter set to ",filter)
 for q in step2[0:-1]:
     #print(q)
     y,x=q.split("-")
@@ -41,8 +49,9 @@ for q in step2[0:-1]:
         x2=float(x)
         y2=float(y)
         if y2<5:
-            x_points.append(float(x2))
-            y_points.append(float(y2))
+            if x2>filter2:
+                x_points.append(float(x2))
+                y_points.append(float(y2))
     except:
         print("error")
 
