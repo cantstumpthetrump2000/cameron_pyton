@@ -7,7 +7,7 @@ holad=""
 
 
 sock = socket.socket()
-sock.connect(('192.168.137.23', 12345))
+sock.connect(('192.168.137.229',12345))
 chunk = sock.recv(CHUNK_SIZE)
 
 holad=holad+(chunk.decode())
@@ -31,9 +31,9 @@ step1=holad
 
 
 step2=step1.split("\n")
-filter=5
+filter=2
 
-filter2=10000
+filter2=60*60*24*2
 print("time folter set this meny second",filter2)
 filter2=time.time()-filter2
 
@@ -48,7 +48,8 @@ for q in step2[0:-1]:
     try:
         x2=float(x)
         y2=float(y)
-        if y2<5:
+        print(time.localtime(x2))
+        if y2>filter:
             if x2>filter2:
                 x_points.append(float(x2))
                 y_points.append(float(y2))
