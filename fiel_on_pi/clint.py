@@ -36,7 +36,7 @@ filter=2
 filter2=60*60*24*2
 print("time folter set this meny second",filter2)
 filter2=time.time()-filter2
-
+filter2=0
 print("weigth filter set to ",filter)
 for q in step2[1:-1]:
     #print(q)
@@ -48,7 +48,7 @@ for q in step2[1:-1]:
     try:
         x2=float(x)
         y2=float(y)
-        #print(time.localtime(x2))
+        print(time.localtime(x2))
         if y2>filter:
             if x2>filter2:
                 x_points.append(float(x2))
