@@ -1,4 +1,7 @@
 
+
+
+#works but if the tail data is in the data packet the code will think that is the end of the data packet 
 import random
 
 
@@ -9,6 +12,8 @@ head="123"
 tail="789"
 
 parrton_data="456646849861"
+
+
 
 
 parrton=head+parrton_data+tail
