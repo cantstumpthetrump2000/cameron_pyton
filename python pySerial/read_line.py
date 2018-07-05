@@ -4,9 +4,9 @@ import serial
 
 
 
-with serial.Serial('COM4', 9600, timeout=5) as ser:
+with serial.Serial('COM8', 9600, timeout=2) as ser:
 
-    line =ser.read(10000)
+    line =ser.readline()
     print(line)
     x=line.decode("utf-8")
     print(x)

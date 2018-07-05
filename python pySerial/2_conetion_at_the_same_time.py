@@ -2,7 +2,7 @@ import serial
 import threading
 import time
 
-
+@main_count=[]
 class myThread (threading.Thread):
    def __init__(self, threadID, name, port_to_use):
       threading.Thread.__init__(self)
@@ -27,10 +27,13 @@ def print_time(threadName, _, port_to_use):
 
         data_packet.append(x)
 
-        if "end" in x :
-            print(threadName)
+        if "10" in x :
+
+            print(threadName+" "+str(time.time()))
+            @main_count
+            main_count.append(time.time())
             for q in data_packet:
-                print(q)
+                print(threadName+"=="+q)
 
             break
 
