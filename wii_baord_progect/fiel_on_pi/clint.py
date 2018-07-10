@@ -33,7 +33,7 @@ step1=holad
 step2=step1.split("\n")
 filter=2
 
-filter2=60*60*24*2
+filter2=60*60*24*30
 print("time folter set this meny second",filter2)
 filter2=time.time()-filter2
 filter2=0
