@@ -30,7 +30,6 @@ pointion2=pointion1[0]+(distance_apart*(3**0.5)),pointion1[1]+(distance_apart/2)
 pointion3=pointion1[0]+(distance_apart*(3**0.5)),pointion1[1]-(distance_apart/2)
 
 
-
 orgin=pointion1[0],pointion1[1]+((distance_apart*(3**0.5))/2)
 
 
@@ -40,6 +39,7 @@ while not done:
                         done = True
         screen.fill((255, 255, 255))
         point_to_point_at=pygame.mouse.get_pos()
+
 
 
     #    pygame.draw.line(screen, (0, 0, 255), orgin,(new_points_x_2,new_points_y_2),5)
@@ -58,15 +58,16 @@ while not done:
         #print(distance_from_pool_2)
         #print(distance_from_pool_3)
 
-        offset_of_points_1=pointion1[0]-orgin[0],pointion1[1]-orgin[1]
-        offset_of_points_2=pointion2[0]-orgin[0],pointion2[1]-orgin[1]
-        offset_of_points_3=pointion3[0]-orgin[0],pointion3[1]-orgin[1]
+        offset_of_points_1=0,((distance_apart*(3**0.5))/2)
+
+        offset_of_points_2=(distance_apart*(3**0.5)),((distance_apart*(3**0.5))/2)
+        offset_of_points_3=(distance_apart*(3**0.5)),(-(distance_apart*(3**0.5))/2)
 
 
-        #print(offset_of_points_1)
-        #print(offset_of_points_2)
-        #print(offset_of_points_3)
-        #exit()
+        print(offset_of_points_1)
+        print(offset_of_points_2)
+        print(offset_of_points_3)
+    #    exit()
         direction=orgin[1],orgin[0]
         direction=direction[1]+(offset_of_points_1[0]*distance_from_pool_1),direction[0]+(offset_of_points_1[1]*distance_from_pool_1)
         direction=direction[1]+(offset_of_points_2[0]*distance_from_pool_2),direction[0]+(offset_of_points_2[1]*distance_from_pool_2)
