@@ -2,7 +2,7 @@ from PIL import Image
 import numpy
 import time
 start=time.time()
-im = Image.open("teast_image_1.png")
+im = Image.open("hello.png")
 
 
 #vaule coulers_found['237-28-36', '255-255-255', '34-177-76']
@@ -15,7 +15,7 @@ loopcounter=0
 
 scan=[[1,0],[-1,0],[0,1],[0,-1]]
 
-look_for_vaule=(0,28,36)
+look_for_vaule=(0,0,0)
 
 x_postion=-1
 y_postion=-1
@@ -94,4 +94,4 @@ for y in array_to_use:
 print("number of boxes found",len(box))
 end=time.time()
 print("total time",end-start)
-print("number of loops",loop_counter)
+#print("number of loops",loop_counter)
