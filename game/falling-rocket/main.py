@@ -44,9 +44,10 @@ ground=480
 GREEN=(255,0,0)
 
 
-GAME_MODE="rocket","turret"
 
 
+#GAME_MODE="rocket"
+GAME_MODE="turret"
 
 def toards_0(x,y):
     if x>0:
@@ -78,6 +79,7 @@ class rocket():
         screen.blit(self.rocket_iamge,(self.x_posion,self.y_posion))
 
 
+
     def Move_(self,x,y):
         self.y_speed+=y
         self.x_speed+=x
@@ -87,12 +89,36 @@ class rocket():
 
 
 
+
+
+
+
+
+
+
+
+class balls():
+    def __init__(self,x_start,y_start):
+
+        self.x_posion=x_start
+        self.y_posion=y_start
+        
+
+
+
+
 class gun():
     def __init__(self,postion):
         self.x,self.y=postion
         self.x_speed,self.y_speed=0,0
         self.size_progectl=5
         self.postion=postion
+        self.balls=[]
+
+
+
+    def add_ball(end_point):
+        self.balls.append()
 
 
     def move(self,x,y):
@@ -129,16 +155,23 @@ while not done:
                 if event.type == pygame.QUIT:
                         done = True
 
-        pressed = pygame.key.get_pressed()
-        if pressed[pygame.K_w]:
-            ship1.Move_(0,-thurst)
-        if pressed[pygame.K_a]:
-            ship1.Move_(-thurst,0)
-        if pressed[pygame.K_s]:
-            ship1.Move_(0,thurst)
-        if pressed[pygame.K_d]:
-            ship1.Move_(thurst,0)
 
+
+        if GAME_MODE=="rocket":
+            pressed = pygame.key.get_pressed()
+            if pressed[pygame.K_w]:
+                ship1.Move_(0,-thurst)
+            if pressed[pygame.K_a]:
+                ship1.Move_(-thurst,0)
+            if pressed[pygame.K_s]:
+                ship1.Move_(0,thurst)
+            if pressed[pygame.K_d]:
+                ship1.Move_(thurst,0)
+
+
+        if GAME_MODE=="turret":
+            pressed =pygame.mouse.get_pressed()
+            (pressed[0]==1)
 
 
 
@@ -187,8 +220,8 @@ while not done:
                 print("hit the wall right ")
 
 
-
-        startion1.move(1,1)
+        if GAME_MODE=="turret":
+            startion1.move(1,1)
 
 
 
@@ -198,7 +231,7 @@ while not done:
 
         pygame.draw.rect(screen, (0, 128, 255), pygame.Rect(safe_zone,480, 20, 10))
 
-        if GAME_MODE=="rocket":
+        if GAME_MODE=="turret":
             startion1.draw()
 
         if GAME_MODE=="rocket":

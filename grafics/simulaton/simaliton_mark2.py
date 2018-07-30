@@ -24,8 +24,11 @@ def distamnce_calutor(x,y,x2,y2):
 
 distance_apart=50
 count=0
-distance=20
+
+
+
 pointion1=250,250
+
 pointion2=pointion1[0]+(distance_apart*(3**0.5)),pointion1[1]+(distance_apart/2)
 pointion3=pointion1[0]+(distance_apart*(3**0.5)),pointion1[1]-(distance_apart/2)
 
