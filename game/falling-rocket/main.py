@@ -1,22 +1,10 @@
-
-
-
-
-
-
-
-
-
-
-
-
 import pygame
 
 
 
 rocket_image="rocket_basic.png"
 
-
+46800
 from PIL import Image
 import numpy
 
@@ -102,7 +90,7 @@ class balls():
 
         self.x_posion=x_start
         self.y_posion=y_start
-        
+
 
 
 
