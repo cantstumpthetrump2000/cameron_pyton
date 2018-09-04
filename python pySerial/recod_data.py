@@ -4,7 +4,7 @@ import serial
 
 fire=open("data_logg pot","w")
 
-with serial.Serial('COM5', 9600, timeout=2) as ser:
+with serial.Serial('COM8', 9600, timeout=2) as ser:
     while 1 :
         line =ser.readline()
         try:
