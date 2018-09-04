@@ -24,7 +24,7 @@ void loop() {
   int n = WiFi.scanNetworks();
 
   
-    Serial.println(" networks found");
+    //Serial.println(" networks found");
     for (int i = 0; i < n; ++i)
     {
       // Print SSID and RSSI for each network found

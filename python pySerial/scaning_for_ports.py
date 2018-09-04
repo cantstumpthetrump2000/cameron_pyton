@@ -16,12 +16,12 @@ for  current_port in list_of_ports:
         print("skipping port",data_flow)
         continue
         print("try to open port ",data_flow)
-        
+
     try:
         while 1:
             port_loacl=data_flow
             print("opening port")
-            port=serial.Serial(data_flow, 9600, timeout=3)
+            port=serial.Serial(data_flow, 115200, timeout=3)
 
             print("reading line")
             line =port.readline()

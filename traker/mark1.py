@@ -12,7 +12,8 @@ class myThread (threading.Thread):
       self.threadID = threadID
       self.name = name
       self.port_to_use = port_to_use
-      self.therd_data=0
+      self.therd_data=5
+      self.mark=True
 
     def run(self):
       print ("Starting " + self.name)
@@ -23,18 +24,19 @@ class myThread (threading.Thread):
 
         port=serial.Serial(port_to_use,115200, timeout=3)
         data_packet=[]
-        mark=True
-        while mark:
+
+        while self.mark:
             line =port.readline()
             #print(line)
             x=line.decode("utf-8")
-            #print("data from usb port")
-            #print("teast ",x)
+            #print("data from usb port",threadName)
+            print("teast ",x,threadName)
             #print("")
-            if  not "scan" in x  and not"network" in x:
-                print("goinf in")
-                print(x)
-                self.therd_data=float(x)
+            if  not "scan" in x  and not"networks" in x and len(x)>2:
+                print("goinf in",threadName)
+                #print(x,threadName)
+                self.therd_data=(10000*(1/abs(float(x))))
+
         #print("#############")
         #print(port_to_use)
         #print(x)
@@ -187,8 +189,12 @@ print("list of all thered runing")
 for q in (thead_list):
     print(q.name)
 
+
+teast_loop=0
 while 1:
-    print("list of all thered runing data")
+    print("teast_loop",teast_loop)
+    teast_loop=teast_loop+1
+    #print("list of all thered runing data")
     a,b,c=thead_list
     #time.sleep(0.5)
 
@@ -200,6 +206,13 @@ while 1:
     B=temp[1][0],temp[1][1],b.therd_data
     C=temp[2][0],temp[2][1],c.therd_data
 
+    print("size of circels",A[2],B[2],C[2])
+    if teast_loop>6:
+        print("STOP")
+        for q in thead_list:
+            q.mark=False
+
+        exit()
     count=0
 
     point_match=[]
@@ -217,22 +230,28 @@ while 1:
     inersection_point.append(circle_intersection(A,C))
     inersection_point.append(circle_intersection(B,C))
 
+    print("intersection points",inersection_point)
+
 
     for q in inersection_point:
+
         for w in q:
+            #print("w",w)
+            #print("q",q)
             marker=True
             for t in inersection_point:
-
+                #print("t",t)
+                #print("w",w)
                 if not (w in t):
-                    print("W no in t ")
+            #        print("W no in t ")
                     marker=False
-                if q==t:
-                    print("comparing same point")
+            #    if q==t:
+            #        print("comparing same point")
                     #marker=False
-                print("q",q)
-                print("w",w)
-                print("T",t)
-                print("")
+                #print("q",q)
+                #print("w",w)
+                #print("T",t)
+                #print("")
             if marker==True:
                 print("point found",w)
 
@@ -248,5 +267,5 @@ while 1:
 
 
 
-
 print ("Exiting Main Thread")
+exit()

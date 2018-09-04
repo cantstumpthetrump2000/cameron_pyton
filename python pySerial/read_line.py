@@ -4,7 +4,7 @@ import serial
 
 
 
-with serial('COM4', 46800, timeout=1) as ser:
+with serial.Serial('COM5', 115200, timeout=1) as ser:
 
     line =ser.readline()
     print(line)
