@@ -1,0 +1,22 @@
+
+
+
+using sdcard.py file 
+
+intall ampy
+
+pip3 install adafruit-ampy
+ampy --port COM8 put sdcard.py
+
+
+
+
+
+
+
+>>> import machine, sdcard, os
+>>> sd = sdcard.SDCard(machine.SPI(1), machine.Pin(15))
+
+os.umount('/')
+os.mount(sd, '/')
+os.listdir()
