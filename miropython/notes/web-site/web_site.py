@@ -11,7 +11,7 @@ html = """<!DOCTYPE html>
 """
 
 import socket
-addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
+addr = socket.getaddrinfo('192.168.0.105', 80)[0][-1]
 
 s = socket.socket()
 s.bind(addr)

@@ -30,7 +30,7 @@ class myThread (threading.Thread):
             #print(line)
             x=line.decode("utf-8")
             #print("data from usb port",threadName)
-            print("teast ",x,threadName)
+            #print("teast ",x,threadName)
             #print("")
             try:
                 self.therd_data=float(x)
@@ -124,6 +124,7 @@ for q in thead_list:
 print("list of all thered runing")
 for q in (thead_list):
     print(q.name)
+    avarges={q.name:0}
 
 import pygame
 import time
@@ -156,7 +157,7 @@ def message_display(text,postion):
     TextRect.center = (postion)
     gameDisplay.blit(TextSurf, TextRect)
 
-    pygame.display.update()
+
 
 
 
@@ -166,7 +167,7 @@ def message_display(text,postion):
 
 
 gameExit = False
-
+avarge2=[[],[],[]]
 while not gameExit:
 
     for event in pygame.event.get():
@@ -179,11 +180,24 @@ while not gameExit:
 
     gameDisplay.fill(white)
     couuuuu=1
+    counter=0
+
     for q in (thead_list):
         print(q.therd_data-5)
-        #message_display("hello",(150*couuuuu,300))
-        message_display(str(q.therd_data),(150*couuuuu,300))
-        couuuuu=couuuuu+1
+        message_display(str(q.name),(100*couuuuu,200))
+        message_display(str(q.therd_data),(100*couuuuu,300))
+        avarge2[counter].append(q.therd_data)
+        temp=0
+        #print(avarge2[counter])
+        for mut in avarge2[counter]:
+            temp=temp+mut
+        temp=temp/len(avarge2[counter])
+        temp=round(temp)
+        message_display(str(temp),(100*couuuuu,400))
+        counter=counter+1
+        couuuuu=couuuuu+2
+
+
     pygame.display.update()
     clock.tick(60)
 
@@ -202,12 +216,6 @@ quit()
 
 
 
-
-
-
-
-while 1:
-    print("teast_loop",teast_loop)
 
 
 
