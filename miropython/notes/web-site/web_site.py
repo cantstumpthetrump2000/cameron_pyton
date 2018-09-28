@@ -20,6 +20,7 @@ s.listen(1)
 print('listening on', addr)
 
 while True:
+    print("runing")
     cl, addr = s.accept()
     print('client connected from', addr)
     cl_file = cl.makefile('rwb', 0)
