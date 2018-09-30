@@ -61,6 +61,7 @@ def tesat():
             break
 
 
+midle_points_5=[]
 coouler_found=sacn_function()
 for q in coouler_found:
 
@@ -76,8 +77,8 @@ for q in coouler_found:
         if scoere<min_f[0]:
 
             min_f=scoere,[y,x]
-    print("min point for ", q, " is ", min_f[1])
-    print("max point for ",q ," is ",max_f[1])
+    #print("min point for ", q, " is ", min_f[1])
+    #print("max point for ",q ," is ",max_f[1])
     x_size=max_f[1][1]-min_f[1][1]
     y_size=max_f[1][0]-min_f[1][0]
 
@@ -87,4 +88,10 @@ for q in coouler_found:
     size_of_couler=y_size*x_size
     print("size of the couler is ",size_of_couler)
     print("the midel point is ",mindel_point)
-    print("")
+    midle_points_5.append(mindel_point)
+
+    #print("")
+
+
+
+print(midle_points_5)
