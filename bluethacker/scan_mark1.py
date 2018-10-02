@@ -11,7 +11,7 @@ from socket import (
     SOL_HCI,
     HCI_FILTER,
 )
-
+"hisjkolpgsji"
 if not os.geteuid() == 0:
     sys.exit("script only works as root")
 
