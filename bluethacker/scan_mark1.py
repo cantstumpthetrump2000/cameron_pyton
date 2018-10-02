@@ -58,4 +58,5 @@ if err < 0:
 while True:
     data = sock.recv(1024)
     # print bluetooth address from LE Advert. packet
-    print(':'.join("{0:02x}".format(x) for x in data[12:6:-1]))
+    #print(':'.join("{0:02x}".format(x) for x in data[12:6:-1]))
+    print(data)
