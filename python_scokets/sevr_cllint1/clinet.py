@@ -2,9 +2,8 @@ import socket
 
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = '192.168.137.75'
-port = 80
-
+host = 127.0.0.1'
+port = 50008
 s.connect((host,port))
 
 def ts(data_to_send):

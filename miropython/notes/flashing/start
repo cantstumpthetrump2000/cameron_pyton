@@ -14,3 +14,5 @@ esptool --port /dev/ttyUSB0 --baud 115200 write_flash --flash_size=detect 0 esp8
 
 import webrepl_setup
 ampy --port /serial/port run test.py
+
+defalt ap password micropythoN 
