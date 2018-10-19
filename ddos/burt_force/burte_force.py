@@ -6,7 +6,7 @@ import threading
 is_it_down=[]
 
 stop=False
-tageget="http://192.168.137.75/"
+tageget="http://192.168.137.62"
 class myThread (threading.Thread):
    def __init__(self, threadID,):
       threading.Thread.__init__(self)
@@ -43,6 +43,4 @@ while stop==False:
         stop=True
 
 print("stoping attac ")
-
-
-
+exit()

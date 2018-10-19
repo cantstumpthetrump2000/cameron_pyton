@@ -10,7 +10,7 @@ user_agegent_data="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/5
 
 
 
-target="http://192.168.137.75/"
+target="192.168.137.62"
 port=80
 
 number_of_contion_to_make=20
@@ -18,7 +18,7 @@ number_of_contion_to_make=20
 def make_socket():
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.settimeout(4)
+    s.settimeout(400)
     s.connect((target, port))
     return (s)
 
