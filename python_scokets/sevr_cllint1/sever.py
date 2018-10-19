@@ -7,7 +7,7 @@ from threading import *
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-host = '192.168.1.172'
+host = '127.0.0.1'
 port = 50008
 print (host)
 print (port)

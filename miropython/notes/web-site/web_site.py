@@ -12,7 +12,7 @@ html = """<!DOCTYPE html>
 
 import socket
 addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
-
+#0.0.0.0 is it root ip to acces from pc go to 192.168.4.1
 s = socket.socket()
 s.bind(addr)
 s.listen(1)
