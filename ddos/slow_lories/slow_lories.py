@@ -26,6 +26,7 @@ lsit_if_connection=[]
 
 
 
+
 for q in range(number_of_contion_to_make):
     lsit_if_connection.append(make_socket())
 

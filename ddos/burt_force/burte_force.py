@@ -6,7 +6,7 @@ import threading
 is_it_down=[]
 
 stop=False
-tageget="http://192.168.137.62"
+tageget="http://192.168.137.72"
 class myThread (threading.Thread):
    def __init__(self, threadID,):
       threading.Thread.__init__(self)
@@ -14,7 +14,7 @@ class myThread (threading.Thread):
    def run(self):
      while stop ==False:
          try:
-            contents = urllib.request.urlopen(tageget,timeout=20).read()
+            contents = urllib.request.urlopen(tageget,timeout=5).read()
             #print(contents)
          except:
             is_it_down[self.threadID]=True

