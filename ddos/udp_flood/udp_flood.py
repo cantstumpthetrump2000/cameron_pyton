@@ -15,7 +15,7 @@ from threading import Thread
 
 #The IP of the website you wish to deed Dos
 #Which can be found by performing a tracert(on windows )
-ip='192.168.137.18'
+ip='192.168.137.196'
 
 #How many threads of your computer you want to dedicate to this task
 threads=50
