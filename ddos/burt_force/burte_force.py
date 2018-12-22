@@ -6,7 +6,7 @@ import threading
 is_it_down=[]
 
 stop=False
-tageget="http://192.168.137.72"
+tageget="http://127.0.0.1"
 class myThread (threading.Thread):
    def __init__(self, threadID,):
       threading.Thread.__init__(self)
