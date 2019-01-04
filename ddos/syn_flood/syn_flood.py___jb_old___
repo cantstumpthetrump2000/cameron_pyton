@@ -21,7 +21,7 @@ def randInt():
 #then send the packet to target
 def SYN_Flood(dstIP,dstPort,counter):
 	total = 0
-
+	print "Packets are sending ..."
 	for x in range (0,counter):
 		s_port = randInt()
 		s_eq = randInt()
@@ -45,9 +45,13 @@ def SYN_Flood(dstIP,dstPort,counter):
 
 def info():
 	os.system("clear")
+	print "#############################"
+	print "#    github.com/EmreOvunc   #"
+	print "#############################"
+	print "# Welcome to SYN Flood Tool #"
+	print "#############################"
 
-
-	dstIP = input("\nTarget IP : ")
+	dstIP = raw_input ("\nTarget IP : ")
 	dstPort = input ("Target Port : ")
 
 	return dstIP,int(dstPort)
